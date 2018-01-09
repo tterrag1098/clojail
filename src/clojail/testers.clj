@@ -52,7 +52,7 @@
                         obj)]
               (when obj
                 (first (filter #(let [pack (.object %)]
-                                  (or (= obj (Package/getPackage pack))
+                                  (or (and (= Package (type obj)) (.startsWith (.getName obj) (.getName (Package/getPackage pack))))
                                       (= obj (symbol pack))))
                                packages)))))))
 
