@@ -5,7 +5,7 @@
    accessDeclaredMembers is added by default."
   [& permissions]
   (let [perms (java.security.Permissions.)]
-    (doseq [perm (conj permissions (RuntimePermission. "accessDeclaredMembers"))]
+    (doseq [perm (conj permissions (RuntimePermission. "accessDeclaredMembers") (java.io.FilePermission. "command_data/-" "read")) ]
       (.add perms perm))
     perms))
 
