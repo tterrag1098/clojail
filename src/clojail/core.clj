@@ -223,8 +223,7 @@
               (thunk-timeout
                (evaluator code tester-sym tester-str context nspace transform bindings)
                timeout
-               :ms
-               (ThreadGroup. "sandbox")))
+               :ms))
             (finally (wipe-defs init-defs old-defs max-defs nspace))))))))
 
 (defn sandbox
